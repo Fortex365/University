@@ -1,0 +1,8 @@
+﻿  Source.c
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Progresivni_dan\Progresivni_dan\Source.c(15,27): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Progresivni_dan\Progresivni_dan\Source.c(19,34): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Progresivni_dan\Progresivni_dan\Source.c(23,36): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Progresivni_dan\Progresivni_dan\Source.c(5,1): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Progresivni_dan\Progresivni_dan\Source.c(6,1): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Progresivni_dan\Progresivni_dan\Source.c(7,1): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Progresivni_dan.vcxproj -> C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Progresivni_dan\Debug\Progresivni_dan.exe

@@ -1,0 +1,54 @@
+\documentclass[a4paper, 11pt, openright]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+
+\usepackage{blindtext}
+
+\author{Tomáš Kühr}
+\title{Ukázka tříd dokumentů a práce s literaturou}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\part{Hlavní text}
+\chapter{První skvělá kapitola}
+\section{První}
+\blindtext
+\subsection{První první}
+\blindtext
+\subsection{První druhá}
+\blindtext
+\section{Druhá}
+\blindtext[5]
+
+\chapter{Druhá skvělá kapitola}
+Lorem ipsum \cite{Knuth1986,KnuthA, KnuthB, KnuthC} dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent im- perdiet mi nec ante. Donec ullamcorper, felis non sodales commodo, lectus velit ultrices augue, a dignissim nibh lectus placerat pede. 
+\section{První}
+\blindtext
+\subsection{První první}
+\blindtext
+\subsubsection{Podpodkapitola}
+\blindtext
+\subsection{První druhá}
+\blindtext
+\section{Druhá}
+\blindtext[5]
+
+%\begin{thebibliography}{99}
+%
+%\bibitem{Knuth1986} Knuth D. E.: \emph{The TeXbook}. Addison-Wesley Professional, 1986.
+%\bibitem{KnuthA} Knuth D. E.: \emph{The TeXbook}. Addison-Wesley Professional, 1986.
+%\bibitem{KnuthB} Knuth D. E.: \emph{The TeXbook}. Addison-Wesley Professional, 1986.
+%\bibitem{KnuthC} Knuth D. E.: \emph{The TeXbook}. Addison-Wesley Professional, 1986.
+%\bibitem{KnuthD} Knuth D. E.: \emph{The TeXbook}. Addison-Wesley Professional, 1986.
+%\bibitem{KnuthE} Knuth D. E.: \emph{The TeXbook}. Addison-Wesley Professional, 1986.
+%\bibitem{KnuthF} Knuth D. E.: \emph{The TeXbook}. Addison-Wesley Professional, 1986.
+%\end{thebibliography}
+
+\bibliographystyle{abstract}
+\nocite{Huet}
+\bibliography{knihy}
+
+\end{document}

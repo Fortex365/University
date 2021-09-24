@@ -1,0 +1,8 @@
+﻿  Source.c
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Zjisteni_pameti_bez_sizeof\Zjisteni_pameti_bez_sizeof\Source.c(15,22): warning C4047: '=': 'int' differs in levels of indirection from 'int *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Zjisteni_pameti_bez_sizeof\Zjisteni_pameti_bez_sizeof\Source.c(16,22): warning C4047: '=': 'int' differs in levels of indirection from 'int *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Zjisteni_pameti_bez_sizeof\Zjisteni_pameti_bez_sizeof\Source.c(21,22): warning C4047: '=': 'int' differs in levels of indirection from 'double *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Zjisteni_pameti_bez_sizeof\Zjisteni_pameti_bez_sizeof\Source.c(22,22): warning C4047: '=': 'int' differs in levels of indirection from 'double *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Zjisteni_pameti_bez_sizeof\Zjisteni_pameti_bez_sizeof\Source.c(9,1): warning C4047: 'initializing': 'int' differs in levels of indirection from 'char *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Zjisteni_pameti_bez_sizeof\Zjisteni_pameti_bez_sizeof\Source.c(10,1): warning C4047: 'initializing': 'int' differs in levels of indirection from 'char *'
+  Zjisteni_pameti_bez_sizeof.vcxproj -> C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Zjisteni_pameti_bez_sizeof\Debug\Zjisteni_pameti_bez_sizeof.exe

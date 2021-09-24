@@ -1,0 +1,278 @@
+;;
+;; Lukáš Netřeba
+;;
+;; Kontextová nabídka objektu, rozšíření třídy window
+;;
+;; Potřebné načtené soubory v tomto pořadí:
+;; knihovna micro-graphics, 08.lisp, 05_bounds.lisp, 08_text-shape.lisp 
+
+(load (current-pathname "micro-graphics V2/load.lisp"))
+(load (current-pathname "Krupka/08.lisp"))
+(load (current-pathname "Krupka/05_bounds.lisp"))
+(load (current-pathname "Krupka/08_text-shape.lisp"))
+
+;;
+;; Class definition
+(defclass menu-window (window)
+  ((selected-object :initform nil)
+   (context-object :initform nil)))
+
+;;
+;; Properties (aka. slot-names in this case) 
+
+(defmethod selected-object ((mw menu-window))
+  "Getter method"
+
+  (slot-value mw 'selected-object))
+
+(defmethod set-selected-object ((mw menu-window) object)
+  "Setter method, valid type of shape or nil."
+
+  (unless (or (typep object 'shape) (eql object nil)) ;precondition
+    (error "Selected-object type must be type of shape or nil."))
+  (setf (slot-value mw 'selected-object) object)) ;set itself
+
+(defmethod context-object ((mw menu-window))
+  "Getter method"
+
+  (slot-value mw 'context-object))
+
+(defmethod set-context-object ((mw menu-window) object)
+  "Setter method, valid type of picture (cuz. context-object is picture of text-shapes) or nil."
+
+  (unless (or (typep object 'picture) (eql object nil))
+    (error "Context-object type must be type of picture or nil."))
+  (setf (slot-value mw 'context-object) object))
+
+#|
+TESTS:
+(setf c (set-filledp
+         (set-radius (set-color (move (make-instance 'circle) 100 50) :blue) 50) t))
+(setf w (make-instance 'menu-window))
+(set-shape w c)
+
+|#
+
+;;
+;; Events
+
+(defmethod mouse-down-no-shape ((mw menu-window) button position)
+  "Method, which clears selected object and its context when clicked outside of any shape."
+
+  (call-next-method)
+  (hide-context mw button position))
+
+(defmethod hide-context ((mw menu-window) button position)
+  (when (or (eql button :right) (eql button :left)) 
+    (set-selected-object mw nil)
+    (when (context-object mw)
+      (progn (changing mw)
+        (set-shape mw (previous-shape-of-window mw))
+        (set-context-object mw nil)
+        (change mw)))))
+
+
+(defmethod ev-mouse-down ((mw menu-window) sender clicked button position)
+  "Method which handles clicked object as selected object and its context menu."
+
+  (call-next-method)
+;Když se kliklo pravým na libovolný shape
+  (when (and (eql button :right) (typep clicked 'shape))
+    (ev-mouse-down-context-right mw sender clicked button position))
+;Naopak když máme selected a k němu kontext a klikneme do něj levým (pouze do textshape)
+  (when (and (eql button :left) (typep clicked 'text-shape)) ; aka. akce v kontextovém okně
+    (ev-mouse-down-context-left mw sender clicked button position)))
+
+
+(defmethod ev-mouse-down-context-right ((mw menu-window) sender clicked button position)
+  "Method which shows the context menu of selected object."
+
+  (if (typep clicked 'text-shape)
+        nil
+    (when (not (and (selected-object mw) (context-object mw)))
+      (progn (set-selected-object mw clicked) (make-context-object mw clicked position)))))
+
+
+(defmethod ev-mouse-down-context-left ((mw menu-window) sender clicked button position)
+  "Method which allows to edit property values inside context menu."
+
+  (let* ((text (text clicked)) ;text textshapu
+           (property-list (get-property-list-of (selected-object mw)))
+           (setter (setter-name (find-property-name text property-list))))
+      (when setter
+        (let* ((input (multiple-value-list (capi:prompt-for-value "Enter new value:")))
+               (newvalue (first input))
+               (stoppedp (second input)))
+          (when stoppedp
+            (progn 
+              (changing mw)
+              (apply setter (list (selected-object mw) newvalue)) ;Po aplikování vlastnosti se kontext. okno zavře
+              (set-shape mw (previous-shape-of-window mw))
+              (set-selected-object mw nil)
+              (set-context-object mw nil)
+              (change mw)))))))
+
+;;
+;; Helper functions or split-up functions (those for easier code reading)
+
+(defun get-property-list-of (selected-object)
+  "Function which returns list of slot name strings based on the type of selected object.
+ Uses global constant *setable-properties-constant*"
+
+  (cond ((pointp selected-object) (slot-properties (get-point)))
+                             ((polygonp selected-object) (slot-properties (get-polygon)))
+                             ((circlep selected-object) (slot-properties (get-circle)))
+                             ((picturep selected-object) (slot-properties (get-picture)))
+                             ((eql nil selected-object) nil)
+                             (t (error "Undefined object type."))))
+
+      
+(defun find-property-name (text property-list)
+  "Finds from clicked textshape (clicked for editting purposes in context menu) its text (which is pair slot-name: value)
+ and list of all settable slot values based on type of object (inspected by context menu) the according slot name, nil if none."
+
+  (let ((result '()))
+    (dolist (item property-list)
+      (when (string-include item text) ;když se našlo v "slot: hodnota" odpovídající symbol z property-list
+        (setf result (string-include item text)))) ;se vrátí symbol slotu jako řetězec
+    result))
+
+
+(defun string-include (string1 string2)
+  "Trying to find if string1 is substring of string2, returns the maximum substring found and nil if none."
+
+  (let* ((string1 (string string1)) (length1 (length string1)))
+    (if (zerop length1)
+        nil 
+        (labels ((sub (s)
+                   (cond
+                    ((> length1 (length s)) nil)
+                    ((string= string1 s :end2 (length string1)) string1)
+                    (t (sub (subseq s 1))))))
+          (sub (string string2))))))
+
+
+(defun setter-name (prop)
+  "For string finds symbol which is used to calling the corresponding setter function."
+  (values (find-symbol (format nil "SET-~a" prop))))
+
+
+(defun function-name (slot-name)
+  "For string finds symbol which is used to calling the corresponding getter function."
+  (values (find-symbol (format nil "~a" slot-name))))
+
+
+;;
+;; Creating the context-menu object.
+
+(defun object-properties-with-value-list (object)
+  "To object returns list of strings of slot-name: value"
+  (let ((result '())
+        (properties-list (get-property-list-of object)))
+;Ke každému řetězci názvu slotu připojíme jeho hodnotu
+    (dolist (property properties-list)
+      (push (string-append property "\: " (write-to-string (apply (function-name property) (list object)))) result))
+    result))
+
+#|
+TEST:
+
+(object-properties-with-value-list (make-instance 'circle))
+|#
+
+(defun make-textshape-of-each-property (list)
+  "Makes a list of textshapes (positionally underneath each other) each containing slot-name: value"
+
+  (let ((y-mov 45)
+        (result '()))
+    (dolist (item list)
+      (push (move (set-text (make-instance 'text-shape) item) 10 y-mov) result)
+      (setf y-mov (+ y-mov 20)))
+    result))
+
+
+(defmethod make-context-object ((mw menu-window) object position)
+"Creating context menu based on the selected object. Wrapping the current shape of window into a picture as 
+ (context-menu-obj, old-mw-shape) for easier return of previous shape without its context menu."
+
+  (let ((pic-text-shapes (make-instance 'picture))
+        (text-shapes-list (make-textshape-of-each-property (object-properties-with-value-list object)))
+        (temporary-mw-shape (make-instance 'picture)))
+    (set-items pic-text-shapes text-shapes-list)
+    (move pic-text-shapes (x position) (y position)) ;pozice dle objektu
+    (set-context-object mw pic-text-shapes)
+    (set-items temporary-mw-shape (list pic-text-shapes (shape mw)))
+    (changing mw)
+    (set-shape mw temporary-mw-shape)
+    (change mw)
+    mw))
+
+(defmethod previous-shape-of-window ((mw menu-window))
+  "Returns last shape of window, before we showed the context menu."
+
+  (second (items (shape mw))))
+
+;;
+;; Global constant
+
+; If you're adding new object:
+; 1) Add it as a list (object-name ("slot1" "slot2" ...))
+; 2) Write a predicate function like pointp, circlep etc. 
+;   (not required but to keep get-property-list-of function more clean)
+; 3) Write an accesor to your list in global constant like get-point, get-circle etc.
+; 4) Edit get-property-list-of function accordingly.
+
+(defvar *setable-properties-constant* '((point ("X" "Y" "PHI" "COLOR" "THICKNESS" "FILLEDP"))
+                            (circle ("RADIUS" "COLOR" "THICKNESS" "FILLEDP"))
+                            (picture ("ITEMS"))
+                            (polygon ("ITEMS" "COLOR" "CLOSEDP" "FILLEDP")))) 
+
+;;
+;; Predicates
+
+(defun pointp (point)
+  (typep point 'point))
+
+(defun circlep (circle)
+  (typep circle 'circle))
+
+(defun picturep (pic)
+  (typep pic 'picture))
+
+(defun polygonp (p)
+  (typep p 'polygon))
+
+;;
+;; Global constant accesors
+
+(defun get-point ()
+  (first *setable-properties-constant*))
+
+(defun get-circle ()
+  (second *setable-properties-constant*))
+
+(defun get-picture ()
+  (third *setable-properties-constant*))
+
+(defun get-polygon ()
+  (fourth *setable-properties-constant*))
+
+;; Returning the list of properties as strings
+
+(defun slot-properties (setable-properties-constant)
+  (second setable-properties-constant))
+
+
+
+
+
+
+
+
+
+
+    
+  
+
+
+  

@@ -1,0 +1,23 @@
+﻿<Window x:Class="zp3cs_3_rizeni_toku_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zp3cs_3_rizeni_toku_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="314" Width="373">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="181*"/>
+            <ColumnDefinition Width="184*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="První" HorizontalAlignment="Left" Margin="20,25,0,0" Name="label1" Width="61" Height="32" VerticalAlignment="Top"/>
+        <Label Content="Druhý" Height="33" HorizontalAlignment="Left" Margin="20,62,0,0" Name="label2" VerticalAlignment="Top" Width="61"/>
+        <DatePicker Height="30" HorizontalAlignment="Left" Margin="117,25,0,0" Name="datumPrvni" VerticalAlignment="Top" Width="150" FirstDayOfWeek="Monday" Grid.ColumnSpan="2" />
+        <DatePicker Height="30" HorizontalAlignment="Left" Margin="117,0,0,185" Name="datumDruhe" VerticalAlignment="Bottom" Width="150" FirstDayOfWeek="Monday" Grid.ColumnSpan="2" />
+        <Button Height="23" Content="Porovnat" HorizontalAlignment="Left" Margin="20,100,0,0" Name="btnPorovnat" VerticalAlignment="Top" Width="75" Click="btnPorovnat_Click"  />
+        <Button Height="22" Content="Konec" HorizontalAlignment="Right" Margin="0,0,18,20" Name="btnKonec" VerticalAlignment="Bottom" Width="75"  Grid.Column="1" />
+        <Label x:Name="lblVysledek" Grid.ColumnSpan="2" Content="" HorizontalAlignment="Left" Height="135" Margin="20,128,0,0" VerticalAlignment="Top" Width="227"/>
+
+    </Grid>
+</Window>

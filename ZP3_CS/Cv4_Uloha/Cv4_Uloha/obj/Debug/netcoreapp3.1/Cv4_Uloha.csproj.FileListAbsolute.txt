@@ -1,0 +1,13 @@
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\bin\Debug\netcoreapp3.1\Cv4_Uloha.exe
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\bin\Debug\netcoreapp3.1\Cv4_Uloha.deps.json
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\bin\Debug\netcoreapp3.1\Cv4_Uloha.runtimeconfig.json
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\bin\Debug\netcoreapp3.1\Cv4_Uloha.runtimeconfig.dev.json
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\bin\Debug\netcoreapp3.1\Cv4_Uloha.dll
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\bin\Debug\netcoreapp3.1\Cv4_Uloha.pdb
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\obj\Debug\netcoreapp3.1\Cv4_Uloha.csprojAssemblyReference.cache
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\obj\Debug\netcoreapp3.1\Cv4_Uloha.AssemblyInfoInputs.cache
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\obj\Debug\netcoreapp3.1\Cv4_Uloha.AssemblyInfo.cs
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\obj\Debug\netcoreapp3.1\Cv4_Uloha.csproj.CoreCompileInputs.cache
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\obj\Debug\netcoreapp3.1\Cv4_Uloha.dll
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\obj\Debug\netcoreapp3.1\Cv4_Uloha.pdb
+C:\Users\Luky\source\repos\Cv4_Uloha\Cv4_Uloha\obj\Debug\netcoreapp3.1\Cv4_Uloha.genruntimeconfig.cache

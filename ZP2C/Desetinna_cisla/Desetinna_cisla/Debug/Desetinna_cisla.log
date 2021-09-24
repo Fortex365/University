@@ -1,0 +1,6 @@
+﻿  Source.c
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Desetinna_cisla\Desetinna_cisla\Source.c(8,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Desetinna_cisla\Desetinna_cisla\Source.c(13,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Desetinna_cisla\Desetinna_cisla\Source.c(14,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Desetinna_cisla\Desetinna_cisla\Source.c(16,16): warning C4018: '<': signed/unsigned mismatch
+  Desetinna_cisla.vcxproj -> C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Desetinna_cisla\Debug\Desetinna_cisla.exe

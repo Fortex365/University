@@ -1,0 +1,13 @@
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\bin\Debug\netcoreapp3.1\Netreba_Ukol7.exe
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\bin\Debug\netcoreapp3.1\Netreba_Ukol7.deps.json
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\bin\Debug\netcoreapp3.1\Netreba_Ukol7.runtimeconfig.json
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\bin\Debug\netcoreapp3.1\Netreba_Ukol7.runtimeconfig.dev.json
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\bin\Debug\netcoreapp3.1\Netreba_Ukol7.dll
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\bin\Debug\netcoreapp3.1\Netreba_Ukol7.pdb
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\obj\Debug\netcoreapp3.1\Netreba_Ukol7.csprojAssemblyReference.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\obj\Debug\netcoreapp3.1\Netreba_Ukol7.AssemblyInfoInputs.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\obj\Debug\netcoreapp3.1\Netreba_Ukol7.AssemblyInfo.cs
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\obj\Debug\netcoreapp3.1\Netreba_Ukol7.csproj.CoreCompileInputs.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\obj\Debug\netcoreapp3.1\Netreba_Ukol7.dll
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\obj\Debug\netcoreapp3.1\Netreba_Ukol7.pdb
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Netreba_Ukol7\Netreba_Ukol7\obj\Debug\netcoreapp3.1\Netreba_Ukol7.genruntimeconfig.cache

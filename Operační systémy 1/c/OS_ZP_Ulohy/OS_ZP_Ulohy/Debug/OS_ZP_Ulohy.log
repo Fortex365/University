@@ -1,0 +1,8 @@
+﻿cl : command line warning D9025: overriding '/sdl' with '/GS-'
+  OS_ZP.c
+C:\Users\Luky\Data\School\Vysoká\Operační systémy 1\c\OS_ZP_Ulohy\OS_ZP_Ulohy\OS_ZP.c(164,15): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[5]'
+C:\Users\Luky\Data\School\Vysoká\Operační systémy 1\c\OS_ZP_Ulohy\OS_ZP_Ulohy\OS_ZP.c(164,13): warning C4024: 'int_to_str': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Operační systémy 1\c\OS_ZP_Ulohy\OS_ZP_Ulohy\OS_ZP.c(168,18): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[38]'
+C:\Users\Luky\Data\School\Vysoká\Operační systémy 1\c\OS_ZP_Ulohy\OS_ZP_Ulohy\OS_ZP.c(168,14): warning C4024: 'pangram': different types for formal and actual parameter 1
+OS_ZP.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+  OS_ZP_Ulohy.vcxproj -> C:\Users\Luky\Data\School\Vysoká\Operační systémy 1\c\OS_ZP_Ulohy\Debug\OS_ZP_Ulohy.exe

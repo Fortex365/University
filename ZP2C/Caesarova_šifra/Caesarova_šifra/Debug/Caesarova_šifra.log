@@ -1,0 +1,11 @@
+﻿  Source.c
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Caesarova_šifra\Caesarova_šifra\Source.c(10,26): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char **'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Caesarova_šifra\Caesarova_šifra\Source.c(10,26): warning C4024: 'strlen': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Caesarova_šifra\Caesarova_šifra\Source.c(14,34): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Caesarova_šifra\Caesarova_šifra\Source.c(15,18): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Caesarova_šifra\Caesarova_šifra\Source.c(16,36): warning C4047: '=': 'char' differs in levels of indirection from 'char *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Caesarova_šifra\Caesarova_šifra\Source.c(18,34): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Caesarova_šifra\Caesarova_šifra\Source.c(19,18): warning C4047: '=': 'char *' differs in levels of indirection from 'int'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Caesarova_šifra\Caesarova_šifra\Source.c(20,36): warning C4047: '=': 'char' differs in levels of indirection from 'char *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Caesarova_šifra\Caesarova_šifra\Source.c(22,31): warning C4047: '=': 'char' differs in levels of indirection from 'char *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Caesarova_šifra\Caesarova_šifra\Source.c(28,1): error C2075: 'vstup': array initialization requires a brace-enclosed initializer list

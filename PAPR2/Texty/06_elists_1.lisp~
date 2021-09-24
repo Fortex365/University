@@ -1,0 +1,28 @@
+(defun elist (&rest elements)
+  (list 'elist
+        (copy-list elements)
+        nil))
+
+(defun elist-contents (elist)
+  (second elist))
+
+(defun list-average (list)
+  (/ (apply #'+ list) 
+     (if (null list) 1 (length list))))
+
+(defun elist-average (elist)
+  (unless (third elist)
+    (setf (third elist) (list-average (elist-contents elist))))
+  (third elist))
+
+(defun elist-add-val (value elist cons)
+  (setf (third elist) nil)
+  (setf (second elist) 
+        (add-val (value (elist-contents elist)) cons))
+  value)
+
+(defun elist-delete-cons (cons elist)
+  (setf (third elist) nil)
+  (setf (second elist)
+        (delete-cons cons (elist-contents elist)))
+  elist)

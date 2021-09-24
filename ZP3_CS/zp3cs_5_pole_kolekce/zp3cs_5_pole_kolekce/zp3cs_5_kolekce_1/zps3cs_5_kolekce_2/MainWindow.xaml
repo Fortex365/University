@@ -1,0 +1,16 @@
+﻿<Window x:Class="Karty.Game"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Karetní hra" Height="357" Width="570" WindowStyle="SingleBorderWindow" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="První" Height="23.2766666666667" Margin="33,14,0,0" Name="label1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="52"/>
+        <Label Content="Druhý" Height="27" Margin="161,12,0,0" Name="label2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="42"/>
+        <Label Content="Třetí" Height="23.2766666666667" Margin="0,14,223,0" Name="label3" VerticalAlignment="Top" HorizontalAlignment="Right" Width="35.63"/>
+        <Label Content="Čtvrtý" Height="26" Margin="417,14,0,0" Name="label4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="52"/>
+        <TextBox Margin="33,39,0,53" Name="prvni" HorizontalAlignment="Left" Width="110" AcceptsReturn="True" AcceptsTab="True" IsReadOnly="True" />
+        <TextBox Margin="161,39,0,53" Name="druhy" HorizontalAlignment="Left" Width="110" AcceptsReturn="True" AcceptsTab="True" IsReadOnly="True" />
+        <TextBox Margin="289,39,0,53" Name="treti" HorizontalAlignment="left" Width="110" AcceptsReturn="True" AcceptsTab="True" IsReadOnly="True"   />
+        <TextBox Margin="417,40,0,53" Name="ctvrty" HorizontalAlignment="left" Width="110" AcceptsReturn="True" AcceptsTab="True" IsReadOnly="True" />
+        <Button Height="23" Margin="233,0,0,12" x:Name="rozdat" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Click="rozdat_Click" Content="Rozdat"/>
+    </Grid>
+</Window>

@@ -1,0 +1,56 @@
+(defclass drag-window (window)
+  ((clicked :initform nil :reader clicked)))
+
+(defmethod install-callbacks :after ((dw drag-window))
+  (install-mouse-up-callback dw)
+  (install-mouse-move-callback dw)
+  dw)
+
+(defmethod (setf clicked) :before (shape (dw drag-window))
+  (unless (or (typep shape 'shape) 
+              (eql shape nil))
+    (error "Something went wrong..")))
+
+(defmethod (setf clicked) (shape (dw drag-window))
+  (setf (slot-value dw 'clicked) shape))
+
+(defmethod install-mouse-up-callback ((dw drag-window))
+  (mg-set-callback 
+   (slot-value dw 'mg-window)
+                   :mouse-up (lambda (mgw button x y)
+                               (declare (ignore mgw))
+                               (window mouse-up
+                                       dw
+                                       button
+                                       (make-instance 'point :x x :y y))))
+  dw)
+
+(defmethod install-mouse-move-callback ((dw drag-window))
+  (mg-set-callback 
+   (slot-value dw 'mg-window)
+   :mouse-move (lambda (mgw button x y)
+                 (declare (ignore mgw))
+                 (window mouse-move
+                         dw
+                         button
+                         (make-instance 'point :x x :y x))))
+  dw)
+
+(defmethod window-mouse-up ((dw drag-window) button position)
+  (setf (clicked dw) nil))
+
+(defmethod window-mouse-move ((dw drag-window) button position)
+  (if (and (clicked dw) (eql button :left))
+      (mouse-move-inside-shape dw (clicked dw) button position)))
+
+(defmethod mouse-move-inside-shape ((dw drag-window) (shape circle) button position)
+  (move shape (- (x position) (x (center shape))) (- (y position) (y (center shape)))))
+
+(defmethod mouse-down-inside-shape ((dw drag-window) (shape point) button position)
+  (move shape (- (x position) (x shape)) (- (y position) (y shape))))
+
+(defmethod mouse-move-inside-shape ((dw drag-window) (shape polygon) button position)
+  (broadcast shape (lambda (mem) (mouse-move-inside-shape dw mem button position))))
+
+(defmethod mouse-down-inside-shape :after ((dw drag-window) shape button position)
+  (setf (clicked dw) shape))

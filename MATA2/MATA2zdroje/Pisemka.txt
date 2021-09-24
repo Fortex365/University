@@ -1,0 +1,5 @@
+Limity fcí více proměnných
+Derivace fcí více proměnných
+Směrová derivace fce více prom.
+(Parciální derivace, integrace fce více prom.)
+Diferenciální rovnice

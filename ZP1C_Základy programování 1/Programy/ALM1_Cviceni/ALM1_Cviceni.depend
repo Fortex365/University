@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1573666509 source:d:\school\vysoká\základy programování 1\programy\alm1_cviceni\alm1_cviceni.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

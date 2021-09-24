@@ -1,0 +1,55 @@
+;; Lukáš Netřeba
+;;
+;; Hiddable-compound-shape, jakožto rozšíření třídy compoud-shape.
+;;
+;; Potřebné načtené soubory v tomto pořadí:
+;; knihovna micro-graphics, 08.lisp, 05_bounds.lisp, 08_text-shape.lisp 
+
+(load (current-pathname "micro-graphics V2/load.lisp"))
+(load (current-pathname "Krupka/08.lisp"))
+;(load (current-pathname "Krupka/05_bounds.lisp"))
+;(load (current-pathname "Krupka/08_text-shape.lisp"))
+
+(defclass hiddable-compound-shape (compound-shape)
+  ((hiddable-items :initform '())))
+
+(defmethod hiddable-items ((hcs hiddable-compound-shape))
+  "Getter method, which returns a list of logic values to corresponding items if they should be shown or hidden."
+  (copy-list (slot-value hcs 'hiddable-items)))
+
+(defmethod set-hiddable-items ((hcs hiddable-compound-shape) value)
+  "Setter method, which checks if the input list is of logical values."
+  (check-hitems hcs value)
+  (changing hcs)
+  (do-set-hitems hcs value)
+  (change hcs)
+  hcs)
+
+(defmethod check-hitems ((hcs hiddable-compound-shape) hitem-list)
+  (do-check-hitems hcs hitem-list))
+
+(defmethod do-check-hitems ((hcs hiddable-compound-shape) hitem-list)
+  (dolist (hitem hitem-list)
+    (check-hitem hcs hitem))
+  hcs)
+
+(defmethod check-hitem ((hcs hiddable-compound-shape) hitem)
+  (unless (or (eql hitem nil) (eql hitem t))
+    (error "Invalid hiddable-item element type."))
+  hcs)
+
+(defmethod do-set-hitems ((hcs hiddable-compound-shape) value)
+  (setf (slot-value hcs 'hiddable-items) (copy-list value)))
+
+
+#|
+TEST:
+(setf h (make-instance 'hiddable-compound-shape))
+|#
+
+(defmethod send-to-hiddable-items ((hcs hiddable-compound-shape) 
+			  message
+			  &rest arguments)
+  (dolist (hitem (hiddable-items hcs))
+    (apply message hitem arguments))
+  hcs)

@@ -1,0 +1,13 @@
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\bin\Debug\netcoreapp3.1\Cv8_Uloha.exe
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\bin\Debug\netcoreapp3.1\Cv8_Uloha.deps.json
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\bin\Debug\netcoreapp3.1\Cv8_Uloha.runtimeconfig.json
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\bin\Debug\netcoreapp3.1\Cv8_Uloha.runtimeconfig.dev.json
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\bin\Debug\netcoreapp3.1\Cv8_Uloha.dll
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\bin\Debug\netcoreapp3.1\Cv8_Uloha.pdb
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\obj\Debug\netcoreapp3.1\Cv8_Uloha.csprojAssemblyReference.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\obj\Debug\netcoreapp3.1\Cv8_Uloha.AssemblyInfoInputs.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\obj\Debug\netcoreapp3.1\Cv8_Uloha.AssemblyInfo.cs
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\obj\Debug\netcoreapp3.1\Cv8_Uloha.csproj.CoreCompileInputs.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\obj\Debug\netcoreapp3.1\Cv8_Uloha.dll
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\obj\Debug\netcoreapp3.1\Cv8_Uloha.pdb
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cv8_Uloha\Cv8_Uloha\obj\Debug\netcoreapp3.1\Cv8_Uloha.genruntimeconfig.cache

@@ -1,0 +1,7 @@
+﻿  Source.c
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Porovnavani_Retezce_pointery\Porovnavani_Retezce_pointery\Source.c(23,16): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [5]'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Porovnavani_Retezce_pointery\Porovnavani_Retezce_pointery\Source.c(23,16): warning C4024: 'porovnej': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Porovnavani_Retezce_pointery\Porovnavani_Retezce_pointery\Source.c(23,23): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [6]'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Porovnavani_Retezce_pointery\Porovnavani_Retezce_pointery\Source.c(23,23): warning C4024: 'porovnej': different types for formal and actual parameter 2
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Porovnavani_Retezce_pointery\Porovnavani_Retezce_pointery\Source.c(17): warning C4715: 'porovnej': not all control paths return a value
+  Porovnavani_Retezce_pointery.vcxproj -> C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Porovnavani_Retezce_pointery\Debug\Porovnavani_Retezce_pointery.exe

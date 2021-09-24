@@ -1,0 +1,9 @@
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

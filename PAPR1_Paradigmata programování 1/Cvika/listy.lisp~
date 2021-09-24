@@ -1,0 +1,15 @@
+(defun sum-list (a)
+  (if (eq nil (cdr a))
+          (car a)
+          (+ (car a) (sum-list (cdr a)))))
+; test 
+; (sum-list '(1 2 3 4 5))
+; => 15
+
+(defun multiply-by (list b)
+  (if (eq nil list)
+          ()
+    (cons (* (car list) b) (multiply-by (cdr list) b))))
+; test
+; (multiply-by '(1 2 3 4) 2)
+; => (2 4 6 8)

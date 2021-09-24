@@ -1,0 +1,6 @@
+Priklady, ktere jsou ze cviceni budou v zapoctu z UDITu.
+
+1. cviceni UDITu - chyběl jsem, ale pravděpodobně se tam dělalo prd.
+2. cviceni - číselné soustavy (oktanová, desítková, šestnáctková, dvojková a jejich přepočty mezi nimi)
+3. cvičení - binární logika (základní operátory konjukce, disjunkce, implikace, ekvivalence;
+ hradla AND, OR, NOT a také vyjádření operátorů pomocí těchto hradel spíše NAND, NOR; věty ÚKNF A ÚDNF)

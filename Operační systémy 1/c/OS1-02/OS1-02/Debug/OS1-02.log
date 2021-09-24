@@ -1,0 +1,4 @@
+﻿  Source.c
+C:\Users\Luky\Downloads\Source.c(5,9): warning C4013: 'avg_int' undefined; assuming extern returning int
+C:\Users\Luky\Downloads\Source.c(6,11): warning C4013: 'avg_short' undefined; assuming extern returning int
+C:\Users\Luky\Downloads\Source.c(24,7): error C2371: 'avg_short': redefinition; different basic types

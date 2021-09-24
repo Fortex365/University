@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Cv2_Ukol/1.0.0": {
+        "runtime": {
+          "Cv2_Ukol.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Cv2_Ukol/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

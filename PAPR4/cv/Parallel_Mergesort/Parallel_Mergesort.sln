@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Parallel_Mergesort", "Parallel_Mergesort.pyproj", "{5094F219-721E-4440-BCA9-7500FA59EB5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5094F219-721E-4440-BCA9-7500FA59EB5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5094F219-721E-4440-BCA9-7500FA59EB5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9BFB562-4C7F-4BF3-B81B-E58DEE8DB418}
+	EndGlobalSection
+EndGlobal

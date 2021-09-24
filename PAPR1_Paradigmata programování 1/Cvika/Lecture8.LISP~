@@ -1,0 +1,4 @@
+(defun printing-fact (n)
+	(if  (= 0)
+	1
+	(print n (

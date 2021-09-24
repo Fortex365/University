@@ -1,0 +1,14 @@
+﻿<Window x:Class="zp3cs_3_rizeni_toku_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zp3cs_3_rizeni_toku_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="300">
+    <Grid>
+        <TextBox Height="90" Margin="16,17,16,0" Name="txtZdroj" VerticalAlignment="Top" AcceptsReturn="True" AcceptsTab="True" TextWrapping="WrapWithOverflow" />
+        <TextBox Height="90" Margin="16,0,16,24" Name="txtKopie" VerticalAlignment="Bottom" AcceptsReturn="False" IsReadOnly="True" TextWrapping="WrapWithOverflow" />
+        <Button HorizontalAlignment="Left" Margin="16,113,0,125" x:Name="btnKopirovat" Width="75" Content="Kopírovat" Click="btnKopirovat_Click"/>
+    </Grid>
+</Window>

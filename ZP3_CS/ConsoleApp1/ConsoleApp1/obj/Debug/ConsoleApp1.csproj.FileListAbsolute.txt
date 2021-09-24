@@ -1,0 +1,5 @@
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

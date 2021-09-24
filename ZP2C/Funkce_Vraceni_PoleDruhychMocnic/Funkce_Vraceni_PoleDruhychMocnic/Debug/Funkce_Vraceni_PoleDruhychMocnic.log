@@ -1,0 +1,20 @@
+﻿  Source.c
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(10,22): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(10,49): warning C4047: 'function': 'const char *' differs in levels of indirection from 'int **'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(10,49): warning C4024: 'strlen': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(12,33): error C2065: 'velikost': undeclared identifier
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(12,33): warning C4047: 'function': 'const char *' differs in levels of indirection from 'int'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(12,33): warning C4024: 'strlen': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(12,16): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(13,34): error C2296: '*': illegal, left operand has type 'int *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(13,34): error C2297: '*': illegal, right operand has type 'int *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(10,1): warning C4047: 'initializing': 'int *' differs in levels of indirection from 'int'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(21,21): warning C4047: 'function': 'int **' differs in levels of indirection from 'int [5]'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(21,21): warning C4024: 'ArrayExpt2': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(23,31): warning C4133: 'function': incompatible types - from 'int [5]' to 'const char *'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(24,23): error C2057: expected constant expression
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(24,23): error C2466: cannot allocate an array of constant size 0
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(24,24): error C2133: 'my_array2': unknown size
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(25,33): warning C4047: 'function': 'int **' differs in levels of indirection from 'int [5]'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(25,33): warning C4024: 'ArrayExpt2': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_Vraceni_PoleDruhychMocnic\Funkce_Vraceni_PoleDruhychMocnic\Source.c(25,34): error C2106: '=': left operand must be l-value

@@ -1,0 +1,4 @@
+﻿  Untitled7.c
+C:\Users\Luky\Data\School\Vysoká\Základy programování 1\Programy\ZP_Uloha2\Untitled7.c(84,31): error C2057: expected constant expression
+C:\Users\Luky\Data\School\Vysoká\Základy programování 1\Programy\ZP_Uloha2\Untitled7.c(84,31): error C2466: cannot allocate an array of constant size 0
+C:\Users\Luky\Data\School\Vysoká\Základy programování 1\Programy\ZP_Uloha2\Untitled7.c(84,32): error C2133: 'pomocne_pole': unknown size

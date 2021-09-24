@@ -1,0 +1,18 @@
+﻿  Source.c
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(9,23): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(9,52): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char **'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(9,52): warning C4024: 'strlen': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(9,69): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char **'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(9,69): warning C4024: 'strlen': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(11,49): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char **'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(11,49): warning C4024: 'strlen': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(12,30): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char **'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(12,30): warning C4024: 'strlen': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(12,67): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char **'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(12,67): warning C4024: 'strlen': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(9,1): warning C4047: 'initializing': 'char *' differs in levels of indirection from 'int'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(20,35): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [4]'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(20,35): warning C4024: 'MergeCharArray': different types for formal and actual parameter 1
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(20,42): warning C4047: 'function': 'char **' differs in levels of indirection from 'char [4]'
+C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Funkce_spojeniRetezce\Source.c(20,42): warning C4024: 'MergeCharArray': different types for formal and actual parameter 2
+  Funkce_spojeniRetezce.vcxproj -> C:\Users\Luky\Data\School\Vysoká\Základy programování 2\Funkce_spojeniRetezce\Debug\Funkce_spojeniRetezce.exe

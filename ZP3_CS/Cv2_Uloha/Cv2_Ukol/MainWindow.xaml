@@ -1,0 +1,27 @@
+﻿<Window x:Class="Cv2_Ukol.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cv2_Ukol"
+        mc:Ignorable="d"
+        Title="Triangle" Height="450" Width="766">
+    <Grid Margin="-14,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="89*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Vertice A" Name ="A" HorizontalAlignment="Left" Margin="97,88,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+        <Label Content="Vertice B" Name ="B" HorizontalAlignment="Left" Margin="97,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.32,2.227" Grid.Column="2"/>
+        <Label Content="Vertice C" Name ="C" HorizontalAlignment="Left" Margin="97,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.32,2.227" Grid.Column="2"/>
+        <TextBox HorizontalAlignment="Left" Name ="IA" Margin="183,92,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.168,0.021" Grid.Column="2"/>
+        <TextBox HorizontalAlignment="Left" Name ="IB" Margin="183,125,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.168,0.021" Grid.Column="2"/>
+        <TextBox HorizontalAlignment="Left" Name ="IC" Margin="183,156,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.168,0.021" Grid.Column="2"/>
+        <Button Content="Count" Name="Result" HorizontalAlignment="Left" Margin="107,245,0,0" VerticalAlignment="Top" Height="52" Width="99" Click="Result_Click" Grid.Column="2"/>
+        <Label Content="Perimeter:" Name="Perimeter" HorizontalAlignment="Left" Margin="107,214,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.123,-0.056" Grid.Column="2"/>
+        <Label Content="" Name="Constructable" HorizontalAlignment="Left" Margin="107,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.216,-0.162" Grid.Column="2"/>
+        <Label Content="" Name="perimeterResult" HorizontalAlignment="Left" Margin="168,214,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+
+    </Grid>
+</Window>

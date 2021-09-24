@@ -1,0 +1,22 @@
+﻿<Window x:Class="zp3cs_5_pole_kolekce_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zp3cs_5_pole_kolekce_2"
+        mc:Ignorable="d"
+        Title="Tiketovací systém" Height="350" Width="300
+        ">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="192*"/>
+            <RowDefinition Height="127*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblCekajici" Content="" HorizontalAlignment="Left" Height="244" Margin="119,53,0,0" VerticalAlignment="Top" Width="140" Grid.RowSpan="2"/>
+        <Label x:Name="label" Content="Čekající:" HorizontalAlignment="Left" Margin="119,15,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnZakaznik" Content="Zákazník" HorizontalAlignment="Left" Margin="26,85,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1" Click="btnZakaznik_Click"/>
+        <Button x:Name="btnObsluha" Content="Obsluha" HorizontalAlignment="Left" Margin="26,21,0,0" VerticalAlignment="Top" Width="75" Click="btnObsluha_Click"/>
+        <Label x:Name="lblAktulani" Content="" HorizontalAlignment="Center" Height="63" Margin="26,129,191,0" VerticalAlignment="Center" Width="75" FontSize="36" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

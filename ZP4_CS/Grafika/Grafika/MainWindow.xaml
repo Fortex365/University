@@ -1,0 +1,25 @@
+﻿<Window x:Class="Grafika.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Grafika"
+        mc:Ignorable="d"
+        Title="Malování" Height="900" Width="1600">
+    <Grid>
+        <ToolBar Name="Toolbar" Margin="0,0,0,784" HorizontalAlignment="Left" Width="800">
+            <RadioButton Name="LineButton" IsChecked="True" Click="LineButton_Click" Content="Line" FontSize="24" Width="165" GroupName="ShapeGroup" Height="100"/>
+            <RadioButton Name="SquareButton" Click="SquareButton_Click" Content="Square" FontSize="24" Width="200" GroupName="ShapeGroup" Height="100"/>
+            <RadioButton Name="PolygonButton" Click="PolygonButton_Click" Content="Polygon" FontSize="24" Width="200" GroupName="ShapeGroup" Height="100"/>
+            <RadioButton Name="CircleButton" Click="CircleButton_Click" Content="Circle" FontSize="24" Width="200" GroupName="ShapeGroup" Height="100"/>
+        </ToolBar>
+        <ToolBar Name="Colors" Height="100" Width="788" HorizontalAlignment="Left" Margin="805,0,0,784">
+            <RadioButton Name="Black" IsChecked="True" Click="Black_Click" Content="Black"  FontSize="24" Width="70" Height="100" GroupName="ColorGroup"/>
+            <RadioButton Name="Red" Click="Red_Click" Content="Red" FontSize="24" Height="100" Width="70" GroupName="ColorGroup"/>
+            <RadioButton Name="Green" Click="Green_Click" Content="Green" FontSize="24" Height="100" Width="70" GroupName="ColorGroup"/>
+            <RadioButton Name="Blue" Click="Blue_Click" Content="Blue" FontSize="24" Height="100" Width="70" GroupName="ColorGroup"/>
+            <Button Click="Button_Click" Content="Save as PNG" FontSize="24" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold"/>
+        </ToolBar>
+        <Canvas Name="canvas" Background="WhiteSmoke" Margin="0,100,0,0" MouseDown="canvas_MouseDown" MouseUp="canvas_MouseUp" MouseMove="canvas_MouseMove"/>
+    </Grid>
+</Window>

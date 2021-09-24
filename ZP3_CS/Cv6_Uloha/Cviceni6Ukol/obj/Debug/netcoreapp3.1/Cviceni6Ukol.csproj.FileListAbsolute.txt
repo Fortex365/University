@@ -1,0 +1,13 @@
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\bin\Debug\netcoreapp3.1\Cviceni6Ukol.exe
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\bin\Debug\netcoreapp3.1\Cviceni6Ukol.deps.json
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\bin\Debug\netcoreapp3.1\Cviceni6Ukol.runtimeconfig.json
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\bin\Debug\netcoreapp3.1\Cviceni6Ukol.runtimeconfig.dev.json
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\bin\Debug\netcoreapp3.1\Cviceni6Ukol.dll
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\bin\Debug\netcoreapp3.1\Cviceni6Ukol.pdb
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\obj\Debug\netcoreapp3.1\Cviceni6Ukol.csprojAssemblyReference.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\obj\Debug\netcoreapp3.1\Cviceni6Ukol.AssemblyInfoInputs.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\obj\Debug\netcoreapp3.1\Cviceni6Ukol.AssemblyInfo.cs
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\obj\Debug\netcoreapp3.1\Cviceni6Ukol.csproj.CoreCompileInputs.cache
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\obj\Debug\netcoreapp3.1\Cviceni6Ukol.dll
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\obj\Debug\netcoreapp3.1\Cviceni6Ukol.pdb
+C:\Users\Luky\Data\School\Vysoká\ZP3_CS\Cviceni6Ukol\Cviceni6Ukol\obj\Debug\netcoreapp3.1\Cviceni6Ukol.genruntimeconfig.cache

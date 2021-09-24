@@ -1,0 +1,5 @@
+(defun scale-list (list factor)
+(if (null list)
+()
+(cons (* factor (car list))
+(scale-list (cdr list) factor))))

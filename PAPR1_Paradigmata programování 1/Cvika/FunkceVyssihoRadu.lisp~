@@ -1,0 +1,7 @@
+(defun nth-power (a n)
+  (labels ((iter (a n ir)
+             (cond ((zerop n) ir)
+                   (t (iter a (- 1 n) (* ir a))))))
+  (cond ((zerop n) 1)
+        ((= n 1) a)
+        (t (iter a n 1)))))

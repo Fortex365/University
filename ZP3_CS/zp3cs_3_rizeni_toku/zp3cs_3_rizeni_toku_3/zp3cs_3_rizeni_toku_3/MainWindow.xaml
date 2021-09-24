@@ -1,0 +1,24 @@
+﻿<Window x:Class="MathsOperators.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Exceptions" Height="382" Width="381">
+    <Grid>
+        <Label Height="32.2766666666667" HorizontalAlignment="Left" Margin="16,19,0,0" x:Name="lhs" VerticalAlignment="Top" Width="80" Content="levý operand"/>
+        <Label Height="32" HorizontalAlignment="Right" Margin="0,19,18.37,0" x:Name="rhs" VerticalAlignment="Top" Width="92.63" Content="pravý operand"/>
+        <TextBox Height="26" HorizontalAlignment="Left" Margin="16,57,0,0" x:Name="lOperand" VerticalAlignment="Top" Width="80" />
+        <TextBox Height="26" HorizontalAlignment="Right" Margin="0,57,31,0" x:Name="rOperand" VerticalAlignment="Top" Width="80" />
+        <StackPanel Margin="108,57,126,165" Name="operators">
+            <RadioButton Height="13.2766666666667" Margin="10,10,10,0" x:Name="addition" VerticalAlignment="Top" Content="+ Sčítání" />
+            <RadioButton Height="13.2766666666667" Margin="10,10,10,0" x:Name="subtraction" VerticalAlignment="Top" Content="- Odčítání" />
+            <RadioButton Height="13.2766666666667" Margin="10,10,10,0" x:Name="multiplication" VerticalAlignment="Top" Content="* Násobení" />
+            <RadioButton Height="13.2766666666667" Margin="10,10,10,0" x:Name="division" VerticalAlignment="Top" Content="/ Dělení"/>
+            <RadioButton Height="13.2766666666667" Margin="10,10,10,0" x:Name="remainder" VerticalAlignment="Top" Content="% Zbytek"/>
+        </StackPanel>
+        <Button Height="23" HorizontalAlignment="Left" Margin="21,0,0,135" x:Name="btnVypocti" Click="vypoctiClick" VerticalAlignment="Bottom" Width="75" Content="Vypočti"/>
+        <Label Margin="21,0,0,98" x:Name="expressionLabel" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="80" Content="Výraz"/>
+        <TextBox Height="26" Margin="108,0,99,98" x:Name="vysledek" VerticalAlignment="Bottom" IsReadOnly="True" />
+        <Label Height="23.2766666666666" HorizontalAlignment="Left" Margin="21,0,0,62" x:Name="resultLabel" VerticalAlignment="Bottom" Width="42.63" Content="Výsledek"/>
+        <TextBox Height="26" Margin="108,0,9,62" x:Name="odpoved" VerticalAlignment="Bottom" IsReadOnly="True" />
+        <Button Height="23" HorizontalAlignment="Left" Margin="19,0,0,24" x:Name="quit" Click="quitClick" VerticalAlignment="Bottom" Width="75" Content="Konec"/>
+    </Grid>
+</Window>

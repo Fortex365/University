@@ -1,0 +1,247 @@
+\documentclass[a4paper, 12pt]{article}
+
+%nastavení kódování, češtiny, fontu
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+
+%nastavení sázení kódu, pseudokódu, barev
+\usepackage{listings}
+\usepackage{algorithm2e}
+\usepackage{xcolor}
+
+%nastavení tabulky
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{float} %pro placement tabulky
+
+%nastavení matematiky
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+%odkazování na sekce
+\usepackage{hyperref}
+\newcommand{\secref}[1]{\nameref{#1}}
+
+%obrázky
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+%Informace o dokumentu
+\title{\bf Závěrečná práce DIPR}
+\author{Lukáš Netřeba}
+\date{\today}
+
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Adam Vojtěch (český text)}
+\label{text} %reference
+
+%Hraní si s \it \bf \sf \indent \uv a \underline
+
+V letech 2012 až 2018 byl členem ODS. V roce 2014 členství pozastavil, v červnu 2018 mu bylo členství stranou zrušeno pro spolupráci s KSČM v rámci připravované druhé {\it Babišovy vlády}.
+
+\indent{Po volbách do Poslanecké sněmovny PČR v roce 2017 byl zvolen jako nestraník za hnutí ANO 2011 poslancem v Jihočeském kraji, a to ze třetího místa kandidátky. Na přelomu listopadu a prosince 2017 se stal kandidátem na post ministra zdravotnictví ČR ve vznikající první vládě {\bf Andreje Babiše}. Dne 13. prosince 2017 jej \underline{prezident} Miloš Zeman do této funkce jmenoval.}
+
+\noindent{Na konci června 2018 jej {\it Andrej Babiš} opět navrhl na post ministra zdravotnictví ČR ve své druhé vládě a dne 27. června 2018 jej prezident Miloš Zeman do této vlády jmenoval. Na klíčovém postu ministra zdravotnictví byl pak také v průběhu první vlny pandemie {\sf covidu-19} v roce 2020.}
+
+Dne 21. září 2020, uprostřed druhé vlny pandemie, oznámil Vojtěch na tiskové konferenci odstoupení ze své funkce ministra zdravotnictví. Vyslovil záměr zůstat \uv{poslancem} a nadále se věnovat zdravotnictví. Ještě tentýž den byl jeho nástupcem jmenován {\it Roman Prymula}.
+
+\newpage
+\section{Zdrojový kód} 
+\label{sourcecode} %reference
+
+\lstset{basicstyle=\tt, keywordstyle=\color{red!100!black}} %nastavení zdrojového kódu 
+
+\begin{lstlisting}[language=Lisp] 
+(defclass semaphore (picture)
+  ((semaphore-type :initform :vehicle)
+   (semaphore-phase :initform 0)))
+
+(defmethod semaphore-type ((s semaphore))
+  (slot-value s 'semaphore-type))
+
+(defmethod semaphore-phase ((s semaphore))
+  (slot-value s 'semaphore-phase))
+
+(defmethod phase-count ((s semaphore))
+  (cond ((vehiclep s) 4)
+        ((pedestrianp s) 2)
+        (t (error "Invalid semaphore type."))))
+
+(defun vehiclep (s)
+  (eql (semaphore-type s) :vehicle))
+
+(defun pedestrianp (s)
+  (eql (semaphore-type s) :pedestrian))
+\end{lstlisting}
+
+\section{Moje to do úkoly do školy}
+\label{todo} %reference
+
+\begin{enumerate} %itemize bez čísel, enumerate s čísly
+	\item Udělat ZP úlohu do DIPR 
+	\item Udělat ZP úlohu do C\#
+	\item Napsat druhou MATA2 písemku
+	\item Napsat druhou ALG2 písemku
+	\item Vypracovat ZP úlohu 2 do PAPR3
+	\item Vypracovat recenze do filmového semináře
+\end{enumerate}
+\newpage
+
+\section{Tabulky}
+\label{tabs} %reference
+
+\begin{table}[H] %parametr H pro tabulky, které nejsou před section, package:float
+	\begin{center}
+	\caption{Tabulka grupoidu (G,+)}
+	\label{tab:table1}
+		\begin{tabular}{c|c c c}
+		\textbf{+} & a & b & c\\
+     	\hline
+     	a & a & a & a \\
+      	b & a & b & a \\
+      	c & a & a & c \\	
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[H]
+	\begin{center}
+	\caption{Tabulka sloučených buněk}
+	\label{tab:table2}
+		\begin{tabular}{|c|c|c|c|}
+		\hline %vrchní čára tabulky
+		
+		\textbf{+} & a & b & c\\
+		\hline
+		
+     	a & \multicolumn{2}{c|}{a+a} & a \\
+     	\hline
+     	
+      	\multirow{2}{*}{bc} & a & b &a\\
+    	  & a & a & c\\ %
+      	\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\section{Matematika}
+\label{math} %reference
+
+\subsection{Matematické věty a důkazy}
+\label{math:sentences_n_proofs} %reference
+\theoremstyle{plain}
+\newtheorem{sentence}{Věta}
+
+\begin{sentence}[Fermentova]
+Neexistují celá kladná čísla $x$, $y$, $z$ a $n$, kde $n > 2$, 
+pro která $x^{n}+y^{n}=z^{n}$
+\end{sentence}
+
+\begin{proof}
+Zřejmé. Ačkoliv byl objeven o desítky let později.
+\qedhere
+\end{proof}
+
+\subsection{Vzorec}
+\label{formula} %reference
+
+\begin{equation}
+a^{2} + b^{2} = c^{2}
+\end{equation}
+
+\subsection{Rovnice}
+\label{equation} %reference
+ 
+\begin{align*}
+4a+5b+c=0 \\
+a+4d=-1
+\end{align*}
+
+
+\subsection{Matice}
+\label{matrix} %reference
+\[
+ A^{'} = \begin{pmatrix}
+  a & b & c \\
+  0 & d & e \\
+  0 & 0 & f \\
+	 \end{pmatrix}
+\]
+
+\newpage
+\section{Citace}
+\begin{quote}
+\uv{Každé řešení je ve finále jednoduché, potom co na něho přijdeš.}
+\newline
+\mbox{}\hfill --Honza Macák\\
+
+\uv{Cookies! More Cookies!}
+\newline
+\mbox{}\hfill --Cookie Monster
+\end{quote}
+
+\section{Obrázky}
+\label{pics}
+\begin{figure}[h]
+\label{pic:nahrdelnik} %reference
+
+\centering \includegraphics[scale=.2]{picture}
+\caption{Náhrdelník}
+\end{figure}
+
+
+\section{Obrázky tikzu}
+\label{tikz:picture} %reference
+\begin{figure}
+\centering
+	\begin{tikzpicture}[scale = 1.2]
+		\draw[|-|] (-2,0) -- (2,0);
+		\filldraw [blue] (0,0) circle (4pt);
+		\draw (-2,-2) .. controls (0,0) .. (2,-2);
+		\draw (-2,2) .. controls (-1,0) and (1,0) .. (2,2);
+	\end{tikzpicture}
+\caption{Dvě paraboly}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[
+roundnode/.style={circle, draw=green!60, fill=green!5, very thick, 	minimum size=10mm},
+squarednode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=10mm},
+]
+
+\node[squarednode] (top) {1};
+\node[roundnode] (bottom) [below=of top] {2};
+\node[squarednode] (right-bottom) [right=of bottom] {End};
+
+\draw[->] (top.south) -- (bottom.north);
+\draw[->] (bottom.east) -- (right-bottom.west);
+\end{tikzpicture}
+\caption{Diagram}
+\end{figure}
+
+\newpage
+
+
+\section{Referenční odkazy}
+\label{references} %reference
+A.Vojtěch více viz. sekce: \secref{text} \\
+Matematika více viz. sekce: \secref{math} \\
+Úkoly více viz. sekce: \secref{todo} \\
+Krásný obrázek viz. sekce: \secref{pic:nahrdelnik}
+
+\section{Použitá literatura}
+\label{literature} %reference
+\url{https://www.latex-tutorial.com/tutorials/}
+
+\end{document}
+
+

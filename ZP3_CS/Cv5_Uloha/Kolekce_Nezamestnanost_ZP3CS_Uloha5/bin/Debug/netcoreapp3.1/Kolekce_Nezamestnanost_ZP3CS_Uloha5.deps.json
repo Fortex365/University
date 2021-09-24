@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Kolekce_Nezamestnanost_ZP3CS_Uloha5/1.0.0": {
+        "runtime": {
+          "Kolekce_Nezamestnanost_ZP3CS_Uloha5.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Kolekce_Nezamestnanost_ZP3CS_Uloha5/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:DataServices>
+    <Schema Namespace="EShop_WebAPI_DTO_ODATA.DTO" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="DTOProduct">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="Customers" Type="Collection(EShop_WebAPI_DTO_ODATA.Models.Customer)" />
+        <NavigationProperty Name="Histories" Type="Collection(EShop_WebAPI_DTO_ODATA.Models.PrizeAtThatTime)" />
+      </EntityType>
+    </Schema>
+    <Schema Namespace="EShop_WebAPI_DTO_ODATA.Models" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="Customer">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Surname" Type="Edm.String" />
+        <Property Name="PhoneNumber" Type="Edm.String" />
+        <Property Name="Email" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <NavigationProperty Name="BoughtProducts" Type="Collection(EShop_WebAPI_DTO_ODATA.Models.Product)" />
+      </EntityType>
+      <EntityType Name="Product">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ProductName" Type="Edm.String" />
+        <NavigationProperty Name="Customers" Type="Collection(EShop_WebAPI_DTO_ODATA.Models.Customer)" />
+        <NavigationProperty Name="Histories" Type="Collection(EShop_WebAPI_DTO_ODATA.Models.PrizeAtThatTime)" />
+      </EntityType>
+      <EntityType Name="PrizeAtThatTime">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Prize" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Date" Type="Edm.DateTimeOffset" Nullable="false" />
+        <NavigationProperty Name="Products" Type="Collection(EShop_WebAPI_DTO_ODATA.Models.Product)" />
+      </EntityType>
+    </Schema>
+    <Schema Namespace="Default" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityContainer Name="Container">
+        <EntitySet Name="Product" EntityType="EShop_WebAPI_DTO_ODATA.DTO.DTOProduct" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

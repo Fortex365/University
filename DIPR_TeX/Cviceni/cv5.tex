@@ -1,0 +1,224 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{blindtext}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\usepackage{tabularx}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage[table]{xcolor}
+\usepackage{xcolor,colortbl}
+\usepackage{makecell}
+
+\usepackage{listings}
+
+\renewcommand{\lstlistlistingname}{Seznam zdrojových kódů}
+\renewcommand{\lstlistingname}{Zdrojový kód}
+
+\lstset{basicstyle=\tt, keywordstyle=\color{red!50!black}, commentstyle=\color{green!50!black},
+showspaces=false, showtabs=false,
+tab=\rightarrowfill,
+emph={rotate},emphstyle=\underbar}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+
+\title{Pokusný dokument pro otestování učiva DIPR}
+\author{Tomáš Kühr}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Tady bude abstrakt. \blindtext
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\listoftables
+\lstlistoflistings
+\newpage
+\section{První sekce}\label{sec:First}
+
+\blindtext[10]
+
+\subsection{První podsekce}\label{subsec:Fristfirst}
+
+\blindtext[2]
+
+\begin{lstlisting}[language=LISP,float=t,caption={Kód třídy point}, label={lst:point}]
+;; class POINT
+
+(defclass point ()
+  ((x :initform 0)
+   (y :initform 0)))
+
+(defmethod r ((point point))
+  (let ((x (slot-value point 'x))
+        (y (slot-value point 'y)))
+    (sqrt (+ (* x x) (* y y)))))
+
+(defmethod phi ((point point))
+  (let ((x (slot-value point 'x))
+        (y (slot-value point 'y)))
+    (cond ((> x 0) (atan (/ y x)))
+          ((< x 0) (+ pi (atan (/ y x))))
+          (t (* (signum y) (/ pi 2))))))
+
+(defmethod set-r-phi ((point point) r phi)
+  (setf (slot-value point 'x) (* r (cos phi))
+        (slot-value point 'y) (* r (sin phi)))
+  point)
+
+(defmethod set-r ((point point) r)
+  (set-r-phi point r (phi point)))
+
+(defmethod set-phi ((point point) phi)
+  (set-r-phi point (r point) phi))
+
+(defmethod move ((point point) dx dy)
+  (setf (slot-value point 'x) (+ dx (slot-value point 'x))
+        (slot-value point 'y) (+ dy (slot-value point 'y)))
+  point)
+
+(defmethod rotate ((point point) center angle)
+  (let ((cx (slot-value center 'x))
+        (cy (slot-value center 'y)))
+    (move point (- cx) (- cy))
+    (set-phi point (+ (phi point) angle))
+    (move point cx cy)
+    point))
+\end{lstlisting}
+
+\subsection{Druhá podsekce}
+\blindtext[3]
+
+\subsubsection{Odrážkový seznam}\label{subsubsec:odrazky}
+\blindlist{itemize}[4]
+
+\subsubsection{Seznam pojmů}\label{subsubsec:pojmy}
+\blindlist{description}[10]
+
+\section{Druhá sekce}
+\blindtext[5]
+
+\begin{table}
+\centering
+\caption{Popisek důležité tabulky}\label{tab:dulezita}
+\begin{tabular}{|l|}
+\hline
+B \\
+\hline
+b \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection[Fakt delší nadpis]{Fakt dlouhá podkapitola s fakt dlouhým názvem, který se nevejde na řadek}
+\blindtext[20]
+
+\subsubsection{Krátká podkapitola}
+\blindtext
+
+\begin{veta}\label{thm:jedina}
+Nechť $V$ a $W$ jsou vektorové prostory dimenzí $m$ a $n$ nad tělesem $T$ a~$M$, $N$ báze  těchto prostorů. Nechť $f$ je homomorfismus prostoru $V$ do prostoru $W$ a $A$ matice typu $m\times n$ nad tělesem $T$. Matice $A$ je maticí homomorfismu $f$ vzhledem k bázím $M$, $N$ právě tehdy, když pro každý vektor $v \in V$ je 
+\begin{equation}
+\langle f(v)\rangle^T_N  = A \cdot \langle v\rangle^T_M.\label{eqn:prvni}
+\end{equation} 
+\end{veta}
+
+\begin{proof}
+Pišme $M=\{v_1, \dots, v_m\}$, $N = \{w_1, \dots, w_n\}$ a $A=(a_{i j})$. Před\-po\-klá\-dej\-me nejprve, že $A$ je matice homomorfismu  $f$ vzhledem k bázím $M$, $N$. Pro každé $j=1, \dots, m$ je tedy
+$$
+f(v_j) = \sum_{i=1}^n a_{ij}w_i \,.
+$$
+Nechť $v$ je libovolný vektor prostoru $V$; vyjádřeme jen souřadnicemi vzhledem k bázi $M$:
+$$
+\langle v \rangle_M = (b_1, \dots, b_m) \text{, tj. } v = \sum_{j=1}^m b_j v_j \text{ .}
+$$
+Odtud
+\begin{eqnarray}
+f(v) = \sum_{j=1}^m b_j f(v_j) &=&\sum_{j=1}^m b_j \left(\sum_{i=1}^n a_{ij}w_i \right) = \sum_{i=1}^n \left(  \sum_{j=1}^m a_{ij}b_j \right) \cdot w_i \text{ ,} \label{eqn:druha}\\
+\langle f(v) \rangle_N &=& \left( \sum_{j=1}^m a_{1j}b_j, \dots, \sum_{j=1}^m a_{nj}b_j \right) \text{ .} \label{eqn:treti}
+\end{eqnarray}
+
+\begin{align*}
+f(v) = \sum_{j=1}^m b_j f(v_j) &=\sum_{j=1}^m b_j \left(\sum_{i=1}^n a_{ij}w_i \right) = \sum_{i=1}^n \left(  \sum_{j=1}^m a_{ij}b_j \right) \cdot w_i \text{ ,} \\
+\langle f(v) \rangle_N &= \left( \sum_{j=1}^m a_{1j}b_j, \dots, \sum_{j=1}^m a_{nj}b_j \right) \text{ .} 
+\end{align*}
+
+$$ \forall x \in \mathbb{R}^3$$
+
+$$\left( \begin{array}{c} x+y  \\ y+z \\ x+z \\ x \end{array}\right) =
+     \left( \begin{array}{*{3}c} 1 & 1 & 0\\ 0 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 0 & 0 \end{array}\right) 
+     \cdot  \left( \begin{array}{c}  x \\ y \\ z \end{array}\right) \text{ ,}$$
+
+\end{proof}
+
+\paragraph{Jen odstavec}
+\blindtext
+
+\begin{landscape}
+\newcolumntype{x}{m{1cm}}
+\begin{table}
+\caption{Rozvrh}\label{tab:rozvrh}
+\begin{tabular}{|*{13}{x}|}
+\hline
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 \\
+\hline
+ & \multicolumn{2}{|l|}{\cellcolor{red!20}DIPR} & & & & & & & \multicolumn{2}{|l|}{\cellcolor{red!20}ZPPCZ} & \multicolumn{2}{l|}{\cellcolor{red!20}DIPR}  \\
+\hline &&&&&&&&&&&&\\
+\hline &&&&&&&&& \multicolumn{3}{|l|}{\cellcolor{red!20}DID1}  &\\
+\hline
+\end{tabular}
+\end{table}
+\end{landscape}
+
+
+
+\blindtext
+
+\subsubsection{Skoro poslední}
+\blindtext[5]
+
+\begin{figure}
+\centering
+\includegraphics[height=6cm, width=10cm, trim=2cm 1cm 1cm 1cm, clip]{funkce}
+\caption{zapeklitá funkce}\label{fig:fce}
+\end{figure}
+
+viz Tabulka \ref{tab:rozvrh} na straně \pageref{tab:rozvrh}
+viz Tabulka \ref{tab:dulezita}
+viz kapitola \ref{sec:First}, část \ref{subsec:Fristfirst}
+
+viz rovnost (\ref{eqn:prvni}) v důkazu věty \ref{thm:jedina}
+viz kód \ref{lst:point}
+
+\appendix
+\section{Příloha}
+\blindtext[2]
+
+\begin{table}
+\centering
+\caption{Méně důležitá tabulka v příloze}
+\begin{tabular}{|l|}
+\hline
+A \\
+\hline
+a \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\end{document}
