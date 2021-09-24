@@ -1,0 +1,17 @@
+
+  V pøípadì odevzdání úlohy po cvièení je termín zaslání do úterý následujícího týdne.
+  
+  Je-li odevzdán jeden soubor, bude mít název:
+      OS2PrijmeniJmenoxx ,
+  kde xx je èíslo úlohy. 
+  Napøíklad OS2SoukupPetr01.c, OS2SoukupPetr01.cpp, OS2SoukupPetr01.rar .     
+  
+  Jsou-li odevzdány dva soubory, budou mít názvy:
+      OS2PrijmeniJmenoxx1 ,
+      OS2PrijmeniJmenoxx2,
+  kde xx je èíslo úlohy. 
+  Napøíklad OS2SoukupPetr011.c, OS2SoukupPetr012.c,
+            OS2SoukupPetr011.cpp, OS2SoukupPetr012.cpp.     
+  
+Do pøedmìtu dopisu napište zkratku OS2 a èíslo úlohy, napøíklad OS2 01.
+V pøípadì, že dopis je posílán z jiné adresy než školní, uveïte v pøedmìtu i své jméno, napøíklad OS2 01 Petr Soukup.
