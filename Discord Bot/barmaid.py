@@ -143,4 +143,5 @@ async def deathroll(ctx, num):
 #Vytvoření webového serveru, který hosting pinguje co 5m, aby bot byl nepřetržitě aktivní. Repl.it po zavření okna v prohlížeči by nechal pouze hodinu běžet náš program
 keep_alive()
 #Připojení bota do discord serveru
-client.run(os.getenv('TOKEN'))
+TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
+client.run(TOKEN)

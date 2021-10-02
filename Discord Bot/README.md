@@ -5,4 +5,8 @@
 
 `pip install emoji`
 
+`pip install flask`
+
+`pip install python-dotenv`
+
 More info will be added later. :)
