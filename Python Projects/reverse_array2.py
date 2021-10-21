@@ -55,3 +55,4 @@ if __name__ == '__main__':
    empty_arr = reverse_array([])
 
    print(f'{fedcba}\n{edcdba}\n{cba_fe}\n{a}\n{none}\n{empty_arr}')
+   
