@@ -1,0 +1,41 @@
+class Index:
+    """Class reprezentation of index object.
+    """
+
+    def __init__(self, labels, name=""):
+        """Index class instance initialization method.
+
+        Args:
+            index: List of indexes.
+        """
+
+        if not labels:
+            raise ValueError(
+                f"Labels must contain at least one item, {labels} was given.")
+
+        contains_duplicates = any(labels.count(item) > 1 for item in labels)
+
+        if contains_duplicates:
+            raise ValueError(
+                f"Labels contains duplicates, {labels} was given.")
+
+        self.labels = labels
+        self.name = name
+
+    def get_loc(self, key):
+        """Returns index where key is in index. 
+        May raise ValueError if key is not in index. 
+
+        Args:
+            key: Key we search for.
+
+        Returns:
+            index: Number where the key was in index. 
+        """
+
+        try:
+            idx = self.labels.index(key)
+        except ValueError as err:
+            raise KeyError(
+                f"Index doesnt exist, since {key} is not in labels.")
+        return idx
