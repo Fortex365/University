@@ -3,8 +3,10 @@ ML/p
 *.log
 log/
 logs/
-Python Projects/reverse_array.py
 debug/
 Discord Bot/.env
 PAPR4/cv/PMM/MDT/.vs/MDT/v16/.suo
 PAPR4/cv/PMM/MDT/MDT.sln
+DATA1_Databázové systémy 1/get_files.txt
+Operační systémy 2/Ukoly/OS2-ProcessPipe05/.vs/OS2-ProcessPipe05/v16/Browse.VC.opendb
+.vs/
