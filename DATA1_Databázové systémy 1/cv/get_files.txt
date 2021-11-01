@@ -1,0 +1,1 @@
+Powershell: pscp netrlu00@database.inf.upol.cz:/home/PUBLIC/04-zamestnanci.sql C:\Users\Luky\Downloads\04-zamestnanci.txt

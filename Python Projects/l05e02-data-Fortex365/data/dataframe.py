@@ -2,8 +2,7 @@ from .index import Index
 
 
 class DataFrame:
-    """Class reprezentation of data-frame object.
-    """
+    """Class reprezentation of data-frame object."""
 
     def __init__(self, values, columns=None):
         """Dataframe class initialization method
@@ -22,11 +21,11 @@ class DataFrame:
         if not values:
             raise ValueError(
                 f"Values must contain at least one item, {values} was given.")
-        elif (columns and
+        if (columns and
               len(values) != len(columns.labels)):
             raise ValueError(
                 f"Values and columns must be the same size, {len(values)} and {len(columns.labels)} was given.")
-        elif not columns:
+        if not columns:
             columns = Index(range(len(values)))
 
         self.values = values
@@ -42,9 +41,8 @@ class DataFrame:
             res: Serie that corresponds to the key. Or None if key isnt in Index.
         """
 
-        res = None
         try:
-            res = self.values[self.columns.get_loc(key)]
+           return self.values[self.columns.get_loc(key)]
         except KeyError as err:
-            pass
-        return res
+            return None
+        

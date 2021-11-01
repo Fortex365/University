@@ -1,6 +1,5 @@
 class Index:
-    """Class reprezentation of index object.
-    """
+    """Class reprezentation of index object."""
 
     def __init__(self, labels, name=""):
         """Index class instance initialization method.
@@ -13,9 +12,7 @@ class Index:
             raise ValueError(
                 f"Labels must contain at least one item, {labels} was given.")
 
-        contains_duplicates = any(labels.count(item) > 1 for item in labels)
-
-        if contains_duplicates:
+        if len(set(labels)) != len(labels):
             raise ValueError(
                 f"Labels contains duplicates, {labels} was given.")
 
@@ -34,8 +31,7 @@ class Index:
         """
 
         try:
-            idx = self.labels.index(key)
+            return self.labels.index(key)
         except ValueError as err:
             raise KeyError(
                 f"Index doesnt exist, since {key} is not in labels.")
-        return idx

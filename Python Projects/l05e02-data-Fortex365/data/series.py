@@ -3,8 +3,7 @@ from statistics import mean
 
 
 class Series:
-    """Class reprezentation of series object.
-    """
+    """Class reprezentation of series object."""
 
     def __init__(self, values, index=None):
         """Series class initialization method
@@ -23,11 +22,11 @@ class Series:
         if not values:
             raise ValueError(
                 f"Values must contain at least one item, {values} was given.")
-        elif (index and
+        if (index and
               len(values) != len(index.labels)):
             raise ValueError(
                 f"Values and index must be the same size, {len(values)} and {len(index.labels)} was given.")
-        elif not index:
+        if not index:
             index = Index(range(len(values)))
 
         self.values = values
@@ -43,12 +42,10 @@ class Series:
             res: Value that corresponds to the key. Or None if key isnt in Index.
         """
 
-        res = None
         try:
-            res = self.values[self.index.get_loc(key)]
+            return self.values[self.index.get_loc(key)]
         except KeyError as err:
-            pass
-        return res
+            return None
 
     def max(self):
         """Finds the maximal value of serie values.
@@ -103,7 +100,11 @@ class Series:
             raise ValueError(
                 f"Cannot apply function to series values since {func} isnt callable.")
 
-        return Series(values=list(map(func, self.values)),
+        new_values = []
+        
+        for val in self.values:
+            new_values.append(func(val))
+        return Series(values=new_values,
                       index=self.index)
 
     def abs(self):
