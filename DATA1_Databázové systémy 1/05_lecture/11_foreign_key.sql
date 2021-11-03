@@ -119,7 +119,7 @@ TABLE child;
 CREATE TABLE parent (
   parent_name varchar(10) NOT NULL, 
   child_name varchar(10) NOT NULL,
-  CONSTRAINT parent_parent_namec_hild_name_pkey PRIMARY KEY ( parent_name, child_name ),
+  CONSTRAINT parent_parent_name_child_name_pkey PRIMARY KEY ( parent_name, child_name ),
   CONSTRAINT parent_child_name_fkey FOREIGN KEY ( child_name ) REFERENCES child ( name )
 );
 
