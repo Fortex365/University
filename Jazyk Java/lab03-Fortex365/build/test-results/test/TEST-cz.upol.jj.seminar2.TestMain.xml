@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cz.upol.jj.seminar2.TestMain" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-10-08T17:55:29" hostname="DESKTOP-JQ96BIS" time="0.037">
+  <properties/>
+  <testcase name="testCountryPrint()" classname="cz.upol.jj.seminar2.TestMain" time="0.015"/>
+  <testcase name="testIndexSetPhoneCode()" classname="cz.upol.jj.seminar2.TestMain" time="0.002"/>
+  <testcase name="testPersonPrint()" classname="cz.upol.jj.seminar2.TestMain" time="0.007"/>
+  <testcase name="testIndexSearch1()" classname="cz.upol.jj.seminar2.TestMain" time="0.001"/>
+  <testcase name="testIndexSearch2()" classname="cz.upol.jj.seminar2.TestMain" time="0.001"/>
+  <testcase name="testIndexSearch3()" classname="cz.upol.jj.seminar2.TestMain" time="0.001"/>
+  <testcase name="testIndexPrint()" classname="cz.upol.jj.seminar2.TestMain" time="0.006"/>
+  <testcase name="testPersonGetPhone()" classname="cz.upol.jj.seminar2.TestMain" time="0.0"/>
+  <testcase name="testIndexCount1()" classname="cz.upol.jj.seminar2.TestMain" time="0.001"/>
+  <testcase name="testIndexCount2()" classname="cz.upol.jj.seminar2.TestMain" time="0.0"/>
+  <testcase name="testPersonGetStatus()" classname="cz.upol.jj.seminar2.TestMain" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
