@@ -19,15 +19,12 @@ class Index:
         self.labels = labels
         self.name = name
 
-
     def __len__(self):
         return len(self.labels)
-    
     
     def __iter__(self):
         for label in self.labels:
             yield label
-    
 
     def get_loc(self, key):
         """Returns index where key is in index. 

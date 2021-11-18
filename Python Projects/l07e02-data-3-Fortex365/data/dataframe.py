@@ -1,5 +1,6 @@
-from data.series import Series
-from data.index import Index
+from typing import ValuesView
+from .series import Series
+from .index import Index
 
 
 class DataFrame:
@@ -32,25 +33,21 @@ class DataFrame:
         self.values = values
         self.columns = columns
 
-
     def __len__(self):
         """Returns length of the dataframe."""
         return len(self.columns)
     
-    
     def __repr__(self):
         return f"DataFrame{repr(self.shape)}"
-
 
     def __str__(self):
         return self.__repr__()
     
-    
     def __iter__(self):
-        for column in self.columns:
-            yield column
-    
-    
+        # for column in self.columns:
+        #     yield column
+        yield from self.columns
+        
     def get(self, key):
         """By given key tries to access the corresponding serie.
 
@@ -65,7 +62,6 @@ class DataFrame:
            return self.values[self.columns.get_loc(key)]
         except KeyError as err:
             return None
-            
     
     @property
     def shape(self):
@@ -74,9 +70,7 @@ class DataFrame:
         Returns:
             tuple: (rows, columns)
         """
-        first = len(self.values[0])
-        return (first, len(self.columns))
-    
+        return (len(self.values[0]), len(self.columns))
     
     @classmethod
     def from_csv(self, text, separator=","):
@@ -93,17 +87,17 @@ class DataFrame:
         lines = text.splitlines()
         
         columns_names = lines[0].split(separator)
-        del columns_names[0]
+        columns_names = columns_names[1:]
         columns = Index(columns_names)
-        del lines[0]
+        lines = lines[1:]
         
         index_labels = []
         new_lines = []
         for line in lines:
             line = line.split(separator)
-            index_labels.append(line[0])   
-            del line[0]
-            new_lines.append(line)            
+            index_labels.append(line[0])
+            line = line[1:]
+            new_lines.append(line)
         index = Index(index_labels)
         lines = new_lines
         
@@ -115,12 +109,11 @@ class DataFrame:
             values.append(Series(list_, index))
         
         return DataFrame(values, columns)
-
     
     def items(self):
         """Returns zip generator of columns and values."""
         return zip(self.columns, self.values)
-
                      
     def index(self):
         return self.values[0].index
+    
