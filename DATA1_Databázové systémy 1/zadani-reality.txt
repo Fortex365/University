@@ -1,0 +1,48 @@
+Navrhněte databázi pro majitele realitní kanceláře, který si záznamy dosud vedl ve formě deníku a teď zjistil, že z toho vlastně nic nevyčte.
+Potřeboval by tedy data převést do nějaké databáze, která mu umožní jejich analýzu, a Vás si na to najal.
+
+Jeho deník obsahuje následující data za prvních pár měsíců provozu. Pokud budete mít pocit, že nějaká informace chybí, ozvěte se. Informace rád dodá. Veškeré případné aktualizace, které si vyžádáte, přibudou na webu pod deníkem.
+
+LEDEN
+1.1.2021 - Tak jsem založil realitku. Zatím mám dva makléře a oběma dávám 40 000 měsíčně, k tomu pronájem kanclu... No, snad se nám to vrátí na provizích.
+22.1.2021 - Nahlásit účtárně: Petr Chalupa koupil byt 1+1 (Kosinova 10) od Jiřího Bolka, zaplatil za něj 3 000 000 korun, kde 150 000 byla naše provize (zprostředkoval to Josef Ruml, to se mu povedlo).
+25.1.2021 - Včera Jan Mokrý zařídil prodej pozemku na Holické v Olomouci za 2 500 000 korun Jiřímu Bolkovi. Původní majitel (Tomáš Marný) za něj chtěl 2 450 000 korun, takže nám i něco zůstalo. (poslat na účetní)
+
+ÚNOR
+6.2.2021 - Přibrali jsme nového makléře - Alois Boura (dal jsem mu plat 35 000 korun měsíčně, tak uvidíme).
+13.2.2021 - Alois se činí, je tu týden a už prodal byt - tu 2+1 na Pavlovické 8 v Olomouci od Karla Vejpustka (za 2 000 000 korun Josefu Nejezchlebovi), provize z toho byla jen 50 000 korun, ale lepší než nic.
+
+BŘEZEN
+7.3.2021 - Už skoro měsíc jsme nic neprodali, musím kluky trochu motivovat...
+20.3.2021 - Konečně něco! Josef Ruml zazářil, provize čtvrt milionu na rodinném domku ve Velkém Týnci (Olomoucká 4); Ivana Blatná - majitelka - chtěla 5 000 000 korun ale Tomáš Marný dal dokonce 5 250 000, takže nám zůstala krásná provize).
+23.3.2021 - Prodej řadovky ve Šternberku na Opavské 4 (zařídil Alois). Původní majitel: Jan Pavel, nový majitel: Jiří Lunt, cena: 6 000 000, provize: 5%
+24.3.2021 - Poslat prodeje za poslední týden na účtárnu!
+
+DUBEN
+14.4.2021 - Pepa Ruml  prodal ten domek (5+2) na Bělidlech s 3% provizí. To je dalších 300 000 korun pro nás. Paráda! Prodávající: Alena Koulová, kupující: Petr Chalupa.
+28.4.2021 - Petr Chalupa prodal ten byt (Kosinova 10), co jsme mu sehnali před pár měsíci a celkem na tom vydělal - koupil ho Jiří Lunt za 3 500 000 korun, zprostředkoval to Honza Mokrý a nám z toho připadlo 100 000.
+
+
+Relační proměnné navrhujte tak, aby:
+ - využívaly pouze prostředků používaných na přednáškách a cvičeních,
+ - měly vhodně zvolené typy atributů (využijte i vlastní skalární typy, pokud to dává smysl),
+ - byly v BCNF,
+ - databáze jako celek neobsahovala redundance, kterým umíte zabránit (použijte pohledy, je-li to třeba),
+ - obsahovaly vhodné primární klíče,
+ - obsahovaly vhodné cizí klíče,
+ - obsahovaly další vhodná integritní omezení, pokud někde dávají smysl.
+
+Databázi naplňte daty dle deníku.
+
+Dále napište dotazy, které z databáze získají následující údaje (toto našeho majitele zajímá):
+
+ 1, Nemovitosti, které se prodaly v daném měsící.
+ 2, Kdo prodal komu a za kolik nějakou nemovitost.	
+ 3, Kolik RK vydělala na prodeji dané nemovitosti.
+ 4, Nejdražší již prodanou nemovitost (pokud je jich více s maximální cenou, tak všechny takové).
+ 5, Nemovitost prodanou s největší provizí (pokud je jich více s maximální provizí, tak všechny takové).
+ 6, Zákazníky, kteří nějakou nemovitost koupili a nějakou prodali.
+ 7, Zákazníky, kteří koupili i prodali tu samou nemovitost.
+ 
+
+Poznámka: na příštím cvičení přidáme další tři dotazy, které si majitel přeje vykonávat. Tím si (mimo jiné) ověříte robustnost Vašeho návrhu.
