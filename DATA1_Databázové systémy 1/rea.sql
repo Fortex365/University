@@ -82,7 +82,7 @@ CREATE TABLE transaction (
     sell_price integer NOT NULL,
     PRIMARY KEY (rea_id),
     CONSTRAINT buy_price_sell_price_positive CHECK (buy_price > 0 AND sell_price > 0),
-    CONSTRAINT buy_price_lesser_than_sell_price CHECK (buy_price < sell_price)
+    CONSTRAINT buy_price_lesser_equal_than_sell_price CHECK (buy_price <= sell_price)
 );
 -- Transakce má svoji nákupní cenu (buy_price) za kterou jej RK odkoupila
 -- od původního majitele. A prodejní novou cenu (sell_price) za kterou ji
@@ -220,9 +220,6 @@ INSERT INTO real_estate_agency (broker, rea_id) VALUES
 INSERT INTO _allowed_months (name) VALUES 
     ('Duben');
 
-INSERT INTO brokers (name) VALUES
-    ('Honza Mokrý'); 
-
 INSERT INTO properties (name, size) VALUES
     ('Bystrovanská 28, Olomouc', '5+2');
 
@@ -248,7 +245,7 @@ INSERT INTO transaction (rea_id, buy_price, sell_price) VALUES
 
 INSERT INTO real_estate_agency (broker, rea_id) VALUES
     ('Josef Ruml', 6),
-    ('Honza Mokrý', 7);
+    ('Jan Mokrý', 7);
 
 
 
@@ -292,6 +289,11 @@ CREATE VIEW sold_in_april AS SELECT property FROM (
     ) AS t2
 );
 
+TABLE sold_in_april;
+TABLE sold_in_february;
+TABLE sold_in_march;
+TABLE sold_in_april;
+
 -- 2) Kdo prodal komu a za kolik nějakou nemovitost
 
 DROP VIEW IF EXISTS who_selled_to_whom CASCADE;
@@ -300,6 +302,8 @@ CREATE VIEW who_selled_to_whom AS SELECT seller, buyer, sell_price FROM (
     ((SELECT * FROM sellers) AS t1 NATURAL JOIN (TABLE buyers) AS t2) AS t3
         NATURAL JOIN (TABLE transaction) AS t4
 );
+
+TABLE who_selled_to_whom;
 
 -- 3) Kolik RK vydělala na prodeji dané nemovitosti
 
@@ -310,6 +314,8 @@ CREATE VIEW rea_property_profit AS SELECT property, profit FROM (
         (SELECT * FROM transaction) AS t1 NATURAL JOIN (TABLE sellers) AS t2
     )) AS t3 NATURAL JOIN (TABLE property_owner) AS t4
 );
+
+TABLE rea_property_profit;
 
 SELECT sum(profit) AS total_profit
     FROM (SELECT * FROM rea_property_profit WHERE property = 'Kosinova 10, Olomouc') AS t1;
@@ -326,6 +332,8 @@ CREATE VIEW rea_most_expansive_property AS SELECT property FROM (
         (SELECT max(sell_price) FROM (TABLE transaction) AS t5)) AS t3 NATURAL JOIN (TABLE property_owner) AS t4
 );
 
+TABLE rea_most_expansive_property;
+
 -- 5) Nemovitost prodanou s nejvyší provizí
 
 DROP VIEW IF EXISTS rea_most_property_profit CASCADE;
@@ -337,3 +345,309 @@ CREATE VIEW rea_most_property_profit AS SELECT * FROM (
             SELECT max(profit) FROM (TABLE rea_property_profit) AS t)
 ) AS t;
 
+TABLE rea_most_property_profit;
+
+-- 6) Zákazníky, kteří nějakou nemovitost koupili a nějakou prodali.
+
+DROP VIEW IF EXISTS who_selled_to_whom CASCADE;
+
+CREATE VIEW who_selled_to_whom AS SELECT * FROM (
+    SELECT * FROM
+    ((SELECT * FROM sellers) AS t1 NATURAL JOIN (TABLE buyers) AS t2) AS t3
+) AS t;
+
+DROP VIEW IF EXISTS who_bought_and_selled_something CASCADE;
+
+CREATE VIEW who_bought_and_selled_something AS SELECT * FROM (
+    (SELECT seller AS name FROM who_selled_to_whom WHERE
+    seller IN
+        (SELECT buyer FROM who_selled_to_whom) 
+    )
+) AS t;
+
+TABLE who_bought_and_selled_something;
+
+-- 7) Zákazníky, kteří koupili i prodali tu samou nemovitost.
+
+DROP VIEW IF EXISTS who_selled_to_whom_with_property CASCADE;
+
+CREATE VIEW who_selled_to_whom_with_property AS SELECT * FROM (
+    (SELECT seller, buyer FROM who_selled_to_whom) AS t2 
+    NATURAL JOIN (SELECT owner AS seller, property FROM property_owner) AS t1
+) AS t;
+
+DROP VIEW IF EXISTS who_selled_and_bought_same_property_helpb CASCADE;
+
+CREATE VIEW who_selled_and_bought_same_property_helpb AS SELECT * FROM (
+    SELECT * FROM who_selled_to_whom_with_property WHERE 
+    seller IN
+        (SELECT buyer FROM who_selled_to_whom_with_property)
+) AS t;
+
+DROP VIEW IF EXISTS who_selled_and_bought_same_property_back CASCADE;
+
+CREATE VIEW who_selled_and_bought_same_property_back AS SELECT * FROM (
+    SELECT DISTINCT seller AS name FROM who_selled_and_bought_same_property_helpb WHERE
+    seller || property IN
+        (SELECT buyer || property FROM who_selled_and_bought_same_property_helpb)
+) AS t;
+
+TABLE who_selled_and_bought_same_property_back;
+
+-- *********
+-- Nová data
+
+INSERT INTO properties (name, size) VALUES  
+    ('Riegerova 10, Olomouc', '2+1');
+
+INSERT INTO property_owner (owner, property) VALUES
+    ('Jiřina Nováková', 'Riegerova 10, Olomouc');
+
+INSERT INTO buyers (rea_id, buyer) VALUES
+    (8, 'Josef Ruml');
+
+INSERT INTO sellers (rea_id, seller) VALUES
+    (8, 'Jiřina Nováková');
+
+INSERT INTO months (rea_id, month_sold) VALUES
+    (8, 'Duben');
+
+INSERT INTO transaction (rea_id, buy_price, sell_price) VALUES
+    (8, 4000000, 4000000);
+
+INSERT INTO real_estate_agency (broker, rea_id) VALUES
+    ('Josef Ruml', 8);
+
+-- 8) Který zaměstnanec vydělal na provizích nejvíce v daném období
+
+DROP VIEW IF EXISTS id_property_profit CASCADE;
+
+CREATE VIEW id_property_profit AS SELECT rea_id, property, profit FROM (
+    (SELECT rea_id, seller AS owner, sell_price - buy_price AS profit FROM (
+        (SELECT * FROM transaction) AS t1 NATURAL JOIN (TABLE sellers) AS t2
+    )) AS t3 NATURAL JOIN (TABLE property_owner) AS t4
+);
+
+DROP VIEW IF EXISTS property_profit_employee_help CASCADE;
+
+CREATE VIEW property_profit_employee_help AS
+SELECT * FROM (
+    ((SELECT * FROM id_property_profit) AS t1 NATURAL JOIN (TABLE real_estate_agency) AS t2)
+ AS t3 NATURAL JOIN (TABLE months) AS t4);
+
+DROP VIEW IF EXISTS employee_profit_january CASCADE;
+DROP VIEW IF EXISTS employee_profit_february CASCADE;
+DROP VIEW IF EXISTS employee_profit_march CASCADE;
+DROP VIEW IF EXISTS employee_profit_april CASCADE;
+
+CREATE VIEW employee_profit_january AS SELECT * FROM (
+    SELECT rea_id, profit, broker FROM property_profit_employee_help WHERE month_sold='Leden'
+) AS t;
+
+CREATE VIEW employee_profit_february AS SELECT * FROM (
+    SELECT rea_id, profit, broker FROM property_profit_employee_help WHERE month_sold='Únor'
+) AS t;
+
+CREATE VIEW employee_profit_march AS SELECT * FROM (
+    SELECT rea_id, profit, broker FROM property_profit_employee_help WHERE month_sold='Březen'
+) AS t;
+
+CREATE VIEW employee_profit_april AS SELECT * FROM (
+    SELECT rea_id, profit, broker FROM property_profit_employee_help WHERE month_sold='Duben'
+) AS t;
+
+-- Za leden
+
+DROP VIEW IF EXISTS employee_top_profit_in_january CASCADE;
+
+CREATE VIEW employee_top_profit_in_january AS SELECT * FROM (
+    SELECT broker FROM employee_profit_january
+    WHERE profit = (
+        SELECT max(total_profit) FROM (
+            SELECT broker, sum(profit) AS total_profit
+            FROM (TABLE employee_profit_january) AS t
+            GROUP BY broker) AS t1
+    )
+) AS t2;
+
+TABLE employee_top_profit_in_january;
+
+-- Za únor 
+
+DROP VIEW IF EXISTS employee_top_profit_in_february CASCADE;
+
+CREATE VIEW employee_top_profit_in_february AS SELECT * FROM (
+    SELECT broker FROM employee_profit_february
+    WHERE profit = (
+        SELECT max(total_profit) FROM (
+            SELECT broker, sum(profit) AS total_profit
+            FROM (TABLE employee_profit_february) AS t
+            GROUP BY broker) AS t1
+    )
+) AS t2;
+
+TABLE employee_top_profit_in_february;
+
+-- Za březen
+
+DROP VIEW IF EXISTS employee_top_profit_in_march CASCADE;
+
+CREATE VIEW employee_top_profit_in_march AS SELECT * FROM (
+    SELECT broker FROM employee_profit_march
+    WHERE profit = (
+        SELECT max(total_profit) FROM (
+            SELECT broker, sum(profit) AS total_profit
+            FROM (TABLE employee_profit_march) AS t
+            GROUP BY broker) AS t1
+    )
+) AS t2;
+
+TABLE employee_top_profit_in_march;
+
+-- Za duben
+
+DROP VIEW IF EXISTS employee_top_profit_in_april CASCADE;
+
+CREATE VIEW employee_top_profit_in_april AS SELECT * FROM (
+    SELECT broker FROM employee_profit_april
+    WHERE profit = (
+        SELECT max(total_profit) FROM (
+            SELECT broker, sum(profit) AS total_profit
+            FROM (TABLE employee_profit_april) AS t
+            GROUP BY broker) AS t1
+    )
+) AS t2;
+
+TABLE employee_top_profit_in_april;
+
+-- 9) Zaměstnance, kteří v zadaném měsíci získali menší provize než je jejich plat
+
+DROP VIEW IF EXISTS employee_profit_worse_than_salary_january CASCADE;
+DROP VIEW IF EXISTS employee_profit_worse_than_salary_february CASCADE;
+DROP VIEW IF EXISTS employee_profit_worse_than_salary_march CASCADE;
+DROP VIEW IF EXISTS employee_profit_worse_than_salary_april CASCADE;
+
+-- V lednu
+
+CREATE VIEW employee_profit_worse_than_salary_january AS SELECT * FROM (  
+    (SELECT name AS broker FROM brokers) 
+    EXCEPT
+    (SELECT broker FROM (
+        SELECT * FROM (
+            (SELECT broker, sum(profit) AS total_profit
+            FROM (TABLE employee_profit_january) AS t5
+            GROUP BY broker) AS t1 
+                NATURAL JOIN (SELECT name AS broker, salary FROM brokers) AS t2
+        ) AS t3
+    ) AS t4 WHERE total_profit > salary)
+) AS t;
+
+TABLE employee_profit_worse_than_salary_january;
+
+-- V únoru
+
+CREATE VIEW employee_profit_worse_than_salary_february AS SELECT * FROM (
+    (SELECT name AS broker FROM brokers) 
+    EXCEPT
+    (SELECT broker FROM (
+        SELECT * FROM (
+            (SELECT broker, sum(profit) AS total_profit
+            FROM (TABLE employee_profit_february) AS t5
+            GROUP BY broker) AS t1 
+                NATURAL JOIN (SELECT name AS broker, salary FROM brokers) AS t2
+        ) AS t3
+    ) AS t4 WHERE total_profit > salary)
+) AS t;
+
+TABLE employee_profit_worse_than_salary_february;
+
+-- V březnu
+
+CREATE VIEW employee_profit_worse_than_salary_march AS SELECT * FROM (
+    (SELECT name AS broker FROM brokers) 
+    EXCEPT
+    (SELECT broker FROM (
+        SELECT * FROM (
+            (SELECT broker, sum(profit) AS total_profit
+            FROM (TABLE employee_profit_march) AS t5
+            GROUP BY broker) AS t1 
+                NATURAL JOIN (SELECT name AS broker, salary FROM brokers) AS t2
+        ) AS t3
+    ) AS t4 WHERE total_profit > salary)
+) AS t;
+
+TABLE employee_profit_worse_than_salary_march;
+
+-- V dubnu
+
+CREATE VIEW employee_profit_worse_than_salary_april AS SELECT * FROM (
+    (SELECT name AS broker FROM brokers) 
+    EXCEPT
+    (SELECT broker FROM (
+        SELECT * FROM (
+            (SELECT broker, sum(profit) AS total_profit
+            FROM (TABLE employee_profit_april) AS t5
+            GROUP BY broker) AS t1 
+                NATURAL JOIN (SELECT name AS broker, salary FROM brokers) AS t2
+        ) AS t3
+    ) AS t4 WHERE total_profit > salary)
+) AS t;
+
+TABLE employee_profit_worse_than_salary_april;
+
+-- 10) Zaměstnance, kteří za celou dobu od svého nástupu získali v součtu menší provize, než byl součet jejich platů.
+
+-- Původní návrh databáze nepočítal s ničím jako datumem nástupu zaměstnanců, bude proto
+-- stávající databáze o toto rozšířena teď.
+
+DROP TABLE IF EXISTS brokers_start_month CASCADE;
+
+CREATE TABLE brokers_start_month (
+    broker varchar(20) NOT NULL,
+    start_month varchar(20) NOT NULL,
+    FOREIGN KEY (broker) REFERENCES brokers (name),
+    FOREIGN KEY (start_month) REFERENCES _allowed_months (name)
+);
+
+INSERT INTO brokers_start_month VALUES
+    ('Josef Ruml', 'Leden'),
+    ('Jan Mokrý', 'Leden'),
+    ('Alois Boura', 'Únor');
+
+DROP VIEW IF EXISTS working_table_brokers CASCADE;
+
+CREATE VIEW working_table_brokers AS SELECT * FROM (
+    (SELECT profit, broker, month_sold FROM property_profit_employee_help) AS t1 NATURAL JOIN (SELECT name AS broker, salary FROM brokers) AS t2
+) AS t;
+
+-- Josef Ruml a Jan Mokrý pracují od Ledna-Duben (4 měsíce), a Alois Boura Únor-Duben (3 měsíce)
+
+DROP VIEW IF EXISTS fullfilled_missing_data CASCADE;
+
+CREATE VIEW fullfilled_missing_data AS SELECT * FROM (
+    (SELECT * FROM (VALUES 
+    ('Josef Ruml', 0, 'Únor', 40000),
+    ('Jan Mokrý', 0, 'Únor', 40000),
+    ('Jan Mokrý', 0, 'Březen', 40000),
+    ('Alois Boura', 0, 'Duben', 35000)) AS t2 (broker, profit, month_sold, salary))
+UNION
+    (TABLE working_table_brokers)
+) AS t;
+
+DROP VIEW IF EXISTS working_table_brokers_semifinal CASCADE;
+
+CREATE VIEW working_table_brokers_semifinal AS SELECT * FROM (
+    (SELECT broker, sum(profit) AS total_profit, sum(salary) AS total_salary FROM
+    fullfilled_missing_data GROUP BY broker) AS t1 NATURAL JOIN
+    (SELECT name AS broker, salary AS monthly_salary FROM brokers) AS t2
+) AS t;
+
+-- Konečně tedy brokers (broker) který total_profit (aka veškeré provize) < total_salary (aka vše co vydělal)
+
+DROP VIEW IF EXISTS underpaid_broker CASCADE;
+
+CREATE VIEW underpaid_broker AS SELECT broker FROM (
+    SELECT * FROM working_table_brokers_semifinal WHERE total_profit < total_salary
+) AS t;
+
+TABLE underpaid_broker;
